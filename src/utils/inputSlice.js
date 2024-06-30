@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Slice to store changes in input 
 const inputSlice = createSlice({
   name: 'input',
   initialState: {

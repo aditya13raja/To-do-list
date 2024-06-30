@@ -4,6 +4,8 @@ import { addTask } from '../utils/taskSlice';
 import { updateInput } from '../utils/inputSlice';
 import addButton from "../assets/circle-plus-solid.svg"
 
+
+// Component to provide component and functionality to add task
 const TaskInput = () => {
   const dispatch = useDispatch();
   const input = useSelector((state) => state.input.value);
@@ -15,6 +17,7 @@ const TaskInput = () => {
     }
   };
 
+  // Enabling to create new task after 'enter' keypress
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       handleAddTask();

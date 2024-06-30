@@ -7,15 +7,18 @@ import TaskEdit from './TaskEdit';
 import editTask from '../assets/pen-solid.svg';
 import deleteTask from '../assets/trash-solid.svg';
 
+// Component to display all tasks
 const TaskList = () => {
   const tasks = useSelector((state) => state.tasks.items);
   const dispatch = useDispatch();
   const [editingTaskId, setEditingTaskId] = useState(null);
 
+  // Set task to edit mode and save the value
   const handleEdit = (taskId) => {
     setEditingTaskId(taskId);
   };
 
+  // Restore to task without editing or updating it
   const handleCancelEdit = () => {
     setEditingTaskId(null);
   };

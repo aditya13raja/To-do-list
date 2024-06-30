@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Slice to store all tasks
 const taskSlice = createSlice({
   name: 'tasks',
   initialState: {
     items: [],
   },
+
+  // Operations provided for the tasks list
   reducers: {
+
     addTask: (state, action) => {
       state.items.push({ id: Date.now(), text: action.payload, completed: false });
     },
@@ -30,6 +34,7 @@ const taskSlice = createSlice({
     },
   }
 });
+
 
 export const { addTask, removeTask, toggleTask, clearTasks, editTask } = taskSlice.actions;
 export default taskSlice.reducer;

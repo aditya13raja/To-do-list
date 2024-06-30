@@ -3,10 +3,13 @@ import { useDispatch } from 'react-redux';
 import { editTask } from '../utils/taskSlice';
 import "../App.scss"
 
+
+// Component used when task is being edited
 const TaskEdit = ({ task, onCancel }) => {
   const [text, setText] = useState(task.text);
   const dispatch = useDispatch();
 
+  // Saving the edited task
   const handleSave = () => {
     if (text.trim()) {
       dispatch(editTask({ id: task.id, text }));
