@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editTask } from '../utils/taskSlice';
+import "../App.scss"
 
 const TaskEdit = ({ task, onCancel }) => {
   const [text, setText] = useState(task.text);
@@ -14,14 +15,16 @@ const TaskEdit = ({ task, onCancel }) => {
   };
 
   return (
-    <div>
+    <div className='taskEdit'>
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button onClick={handleSave}>Save</button>
-      <button onClick={onCancel}>Cancel</button>
+      <div className='buttons'>
+        <button onClick={handleSave}>Save</button>
+        <button onClick={onCancel}>Ca</button>
+      </div>
     </div>
   );
 };

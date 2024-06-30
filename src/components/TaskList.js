@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeTask, toggleTask } from '../utils/taskSlice';
 import TaskEdit from './TaskEdit';
 
+// Import images for button
+import editTask from '../assets/pen-solid.svg';
+import deleteTask from '../assets/trash-solid.svg';
+
 const TaskList = () => {
   const tasks = useSelector((state) => state.tasks.items);
   const dispatch = useDispatch();
@@ -20,7 +24,7 @@ const TaskList = () => {
   const sortedTasks = tasks.slice().sort((a, b) => a.completed - b.completed);
 
   return (
-    <div>
+    <div className='taskList'>
       <ul>
         {sortedTasks.map((task) => (
           <li key={task.id}>
@@ -34,8 +38,14 @@ const TaskList = () => {
                 >
                   {task.text}
                 </span>
-                <button onClick={() => handleEdit(task.id)}>Edit</button>
-                <button onClick={() => dispatch(removeTask(task.id))}>Remove</button>
+                <div className='buttons'>
+                  <button onClick={() => handleEdit(task.id)}>
+                    <img src={editTask} alt='Edit' />
+                  </button>
+                  <button onClick={() => dispatch(removeTask(task.id))}>
+                    <img src={deleteTask} alt='Delete' />
+                  </button>
+                </div>
               </>
             )}
           </li>

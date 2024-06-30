@@ -4,6 +4,8 @@ import store from './utils/store';
 import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 
+import './App.scss';
+
 const App = () => {
   return (
     <Provider store={store}>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTask } from '../utils/taskSlice';
 import { updateInput } from '../utils/inputSlice';
+import addButton from "../assets/circle-plus-solid.svg"
 
 const TaskInput = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,18 @@ const TaskInput = () => {
   };
 
   return (
-    <div>
+    <div className='taskInput'>
       <input
         type="text"
+        placeholder='Add Task'
         value={input}
         onChange={(e) => dispatch(updateInput(e.target.value))}
         onKeyPress={handleKeyPress}
       />
-      <button onClick={handleAddTask}>Add Task</button>
+      <button onClick={handleAddTask}>
+        <img src={addButton} alt='Add' style={{width: '2rem'}}/>
+      </button>
+      
     </div>
   );
 };
